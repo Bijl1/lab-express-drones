@@ -1,11 +1,11 @@
 // Iteration #1
-const mongoose = require('mongoose');
-const Movie = require('../models/Drone.model');
+const { Schema, model } = require("mongoose");
+const droneSchema = new Schema(
+    {
+        name: String,
+        propellers: Number,
+        maxSpeed: Number,
+      },
+);
 
-mongoose.connect('mongodb://127.0.0.1:27017/lab-express-drones')
-.then(() => {
-  console.log('connected to database');
-})
-.catch((error) => {
-  console.log('error connecting to database');
-})
+module.exports = model('Drone', droneSchema);
